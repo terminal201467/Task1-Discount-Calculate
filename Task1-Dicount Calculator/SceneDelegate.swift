@@ -16,7 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowSet = (scene as? UIWindowScene) else { return }
+        self.window = UIWindow(windowScene: windowSet)// 建立一個 UIWindow
+        self.window!.backgroundColor = UIColor.white// 設置底色
+        self.window!.rootViewController = ViewController()// 設置根視圖控制器
+        self.window!.makeKeyAndVisible()// 將 UIWindow 設置為可見的
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
